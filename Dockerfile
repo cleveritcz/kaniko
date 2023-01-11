@@ -20,7 +20,7 @@ RUN chmod +x /kaniko/executor \
 	&& chmod +x /kaniko/docker-credential-*
 
 # Rather than use Kaniko's ca-certificate bundle, use the one provided by the ca-certificates package
-RUN rm /kaniko/certs/ca-certificates.crt \
+RUN rm -f /kaniko/certs/ca-certificates.crt \
 	&& ln -sf /etc/ssl/certs/ca-certificates.crt /kaniko/certs/ca-certificates.crt
 
 # Set the env vars like Kaniko does, but with our own PATH
