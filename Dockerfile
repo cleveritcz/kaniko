@@ -16,8 +16,7 @@ COPY --from=kaniko /kaniko/* /kaniko/
 COPY --from=kaniko /kaniko/.docker /kaniko/.docker
 
 # Ensure the execute bits are set appropriatly
-RUN chmod +x /kaniko/executor \
-	&& chmod +x /kaniko/docker-credential-*
+RUN chmod +x /kaniko/executor /kaniko/docker-credential-*
 
 # Rather than use Kaniko's ca-certificate bundle, use the one provided by the ca-certificates package
 RUN rm -f /kaniko/certs/ca-certificates.crt \
